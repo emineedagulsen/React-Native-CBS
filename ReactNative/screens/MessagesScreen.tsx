@@ -4,17 +4,20 @@ import { Button, FlatList, StyleSheet, Text, TextInput, View } from 'react-nativ
 import { useNavigation } from '@react-navigation/native';
 import { useGetMessages, usePostMessage } from '../hooks/todos';
 import { useQueryClient } from 'react-query';
-import { GiftedChat } from 'react-native-gifted-chat';
+import { AntDesign } from '@expo/vector-icons';
 
 
 export default function MessagesScreen() {
 
+    const navigation = useNavigation();
     const queryClient = useQueryClient();
+    const dispatch = useDispatch();
 
     const [message, setMessage] = React.useState('');
 
-    const chatmes = useSelector((state: any) => state.chat.chatmes);
     const loggedInUser = useSelector((state: any) => state.user.loggedInUser);
+        const openChat = useSelector((state: any) => state.chat.openChat);
+
     const { mutate: createChatmessage } = usePostMessage()
 
     const { isLoading, isError, messages, error } = useGetMessages();
@@ -37,8 +40,8 @@ export default function MessagesScreen() {
     return (
         <View style={styles.container}>
 
-                <Text>{chatmes.user}</Text>
-            <Text>{chatmes.message}</Text>
+            <Text>{openChat.user}</Text>
+            <Text>{openChat.message}</Text>
 
             <FlatList
                 data={messages}
@@ -46,9 +49,9 @@ export default function MessagesScreen() {
             <TextInput
                 onChangeText={setMessage}
                 value={message}
-                placeholder="New Message"
+                placeholder="Type a message"
             />
-            <Button title="Send" onPress={Message} />
+            <AntDesign title="Send" onPress={Message} />
         </View>
     );
 }
