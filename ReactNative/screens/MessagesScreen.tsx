@@ -9,13 +9,11 @@ import { GiftedChat } from 'react-native-gifted-chat';
 
 export default function MessagesScreen() {
 
-    const navigation = useNavigation();
     const queryClient = useQueryClient();
-    const dispatch = useDispatch();
 
     const [message, setMessage] = React.useState('');
 
-    const openChat = useSelector((state: any) => state.chat.openChat);
+    const chatmes = useSelector((state: any) => state.chat.chatmes);
     const loggedInUser = useSelector((state: any) => state.user.loggedInUser);
     const { mutate: createChatmessage } = usePostMessage()
 
@@ -39,8 +37,8 @@ export default function MessagesScreen() {
     return (
         <View style={styles.container}>
 
-                <Text>{openChat.user}</Text>
-            <Text>{openChat.message}</Text>
+                <Text>{chatmes.user}</Text>
+            <Text>{chatmes.message}</Text>
 
             <FlatList
                 data={messages}
