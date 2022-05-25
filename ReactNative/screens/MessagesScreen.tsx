@@ -4,7 +4,6 @@ import { Button, FlatList, StyleSheet, Text, TextInput, View } from 'react-nativ
 import { useNavigation } from '@react-navigation/native';
 import { useGetMessages, usePostMessage } from '../hooks/todos';
 import { useQueryClient } from 'react-query';
-import { AntDesign } from '@expo/vector-icons';
 
 
 export default function MessagesScreen() {
@@ -40,8 +39,9 @@ export default function MessagesScreen() {
     return (
         <View style={styles.container}>
 
-            <Text>{openChat.user}</Text>
-            <Text>{openChat.message}</Text>
+            <Text style={styles.textInputStyle}>
+                {openChat.user}</Text>
+            <Text style={styles.textInputStyle}>{openChat.message}</Text>
 
             <FlatList
                 data={messages}
@@ -51,7 +51,7 @@ export default function MessagesScreen() {
                 value={message}
                 placeholder="Type a message"
             />
-            <AntDesign title="Send" onPress={Message} />
+            <Button title="Send" onPress={Message} />
         </View>
     );
 }
@@ -61,12 +61,20 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#fff',
         
+        
     },
     
     a: {
         alignItems: 'center',
         justifyContent: 'center',
+        backgroundColor: 'purple',
         margin:5
 
-    }
+    },
+    textInputStyle: {
+        backgroundColor: 'pink',
+        width:"30%",
+        borderRadius: 100,
+
+        }
 })  
