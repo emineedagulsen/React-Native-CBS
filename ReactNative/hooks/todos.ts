@@ -30,7 +30,7 @@ export const usePostMessage=()=>{
     const token = useSelector((state: any) => state.user.idToken)
 
     return useMutation( (newMessages:Messages) => {
-        return  axios.post(baseUrl+ 'messages.json?auth='+token,newMessages)
+        return  axios.post(baseUrl+ 'chatrooms/messages.json?auth='+token,newMessages)
     })
 }
 

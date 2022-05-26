@@ -9,6 +9,7 @@ import EditProfileScreen from '../screens/EditProfileScreen';
 import HomeScreen from '../screens/HomeScreen';
 import ProfileScreen from '../screens/ProfileScreen';
 import NewUserScreen from '../screens/NewUserScreen';
+import EventsScreen from '../screens/EventsScreen';
 
 
 
@@ -43,6 +44,7 @@ function DiscoverStackNavigator() {
     return (
         <Stack.Navigator>
             <Stack.Screen name="Discover" component={DiscoverScreen} />
+            <Stack.Screen name="Event" component={EventsScreen} />
             <Stack.Screen name="Home" component={HomeScreen} />
 
         </Stack.Navigator>
@@ -120,7 +122,7 @@ export default function Navigation() {
                      <Stack.Screen name="NewUser" component={NewUserScreen} />
                      <Stack.Screen name="VerifiedEmail" component={VerifiedEmailScreen} />
                      <Stack.Screen name="BeforeStart" component={BeforeStartScreen} />
-                    
+
                 </Stack.Navigator>
             )}
         </NavigationContainer>

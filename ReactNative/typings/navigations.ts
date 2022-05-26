@@ -9,4 +9,5 @@ export type StackParamList = {
     Home:undefined;
     BeforeStart:undefined;
     Messages:undefined;
+    Event:undefined;
 }

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, TextInput, View ,Image, TouchableOpacity, SafeAreaView} from 'react-native';
+import { StyleSheet, Text, TextInput, View ,Image, TouchableOpacity, SafeAreaView, ImageBackground} from 'react-native';
 import { Searchbar } from 'react-native-paper';
 
 export default function DiscoverScreen({navigation}: {navigation: any}) {
@@ -11,46 +11,90 @@ export default function DiscoverScreen({navigation}: {navigation: any}) {
 
     return (
     <><Searchbar
-            onPressIn={() => navigation.navigate('Home')}
-            placeholder="Search"
-            onChangeText={onChangeSearch}
-            value={searchQuery} /><View style={styles.container}>
-                <TouchableOpacity style={styles.container}>
-                    <Text style={styles.title} >ALL EVENTS</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.container}>
-                    <Text style={styles.title} >ALL STUDENT ORGANIZATION</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.container}>
-                    <Text style={styles.title} >ALL POSTS</Text>
-                </TouchableOpacity>
-            </View></>
+        onPressIn={() => navigation.navigate('Home')}
+        placeholder="Search"
+        onChangeText={onChangeSearch}
+        value={searchQuery} />
+
+
+          <View style={styles.container}>
+            <TouchableOpacity onPress={() => navigation.navigate('Event')}>
+              <ImageBackground
+                style={styles.coverImage}
+                borderRadius={80}
+                source={require("../assets/images.png")}
+              >
+                <View style={styles.textView}>
+                  <Text style={styles.imageText}>ALL EVENTS</Text>
+                </View>
+              </ImageBackground>
+            </TouchableOpacity>
+
+
+            
+            <View style={styles.container}>
+            <ImageBackground
+              style={styles.coverImage}
+              borderRadius={80}
+              source={require("../assets/organization.png")}
+            >
+              <View style={styles.textView}>
+                <Text style={styles.imageText}>ALL ORGANIZATIONS</Text>
+              </View>
+            </ImageBackground>
+
+
+
+            <ImageBackground
+              style={styles.coverImage}
+              borderRadius={80}
+              source={require("../assets/post.png")}
+            >
+              <View style={styles.textView}>
+                <Text style={styles.imageText}>ALL POSTS</Text>
+              </View>
+            </ImageBackground>
+          </View>
+
+
+
+
+          </View></>
   );
 };
 
 
 
-const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#fff',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-    button: {
-        
-        alignItems: 'center',
-        padding: 10,
-        margin: 80,
-        height: 50,
-        width: 50,
-        opacity: 0.7,
 
-      },
-      title: {
-        fontSize: 13,
-        color: "black",
-        marginBottom: 20,
-        fontWeight: "400",
-    },
-  });
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    
+
+  },
+  coverImage: {
+    width: '99%',
+    height: 180,
+    opacity:0.7,
+    
+
+  },
+  textView: {
+    position: 'absolute',
+    justifyContent: 'center',
+    alignItems: 'center',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    opacity:0.7,
+    
+
+  },
+  imageText: {
+    fontSize: 20,
+    color: 'white',
+    fontWeight: 'bold',
+    
+  },
+});

@@ -9,41 +9,36 @@ import { Avatar } from 'react-native-paper';
 
 export default function MessagesScreen() {
 
-    const navigation = useNavigation();
     const queryClient = useQueryClient();
-    const dispatch = useDispatch();
 
     const [message, setMessage] = React.useState('');
 
     const loggedInUser = useSelector((state: any) => state.user.loggedInUser);
     const Chat = useSelector((state: any) => state.chat.Chat);
 
-    const { mutate: createChatmessage } = usePostMessage()
 
     const { isLoading, isError, messages, error } = useGetMessages();
-    
-     
-   
+    const { mutate: createChatmessage } = usePostMessage()
 
-    const mesaggesfromdata = ({ item }: { item: any }) => (
-        <View style={styles.a} >
-            <Text>{item.user.email}</Text>
-            <Text>{item.title}</Text>
-        </View>
-    )
+     //save messages
     const Message = () => {
         const x = { title: message, user: loggedInUser }
         createChatmessage(x, { onSuccess: () => queryClient.invalidateQueries('chatmessages') })
     }
     
+
+    const mesaggesfromdata = ({ item }: { item: any }) => (
+        <View style={styles.mymessages} >
+            <Text style ={styles.a}>{item.user.email}</Text>
+            <Text style ={styles.a}>{item.title}</Text>
+        </View>
+    )
+   
     return (
         <><View style={styles.textInputStyle}>
-
             <Text>{Chat.user}</Text>
             <Text>{Chat.message}</Text>
         </View><View style={styles.container}>
-
-
                 <FlatList
                     data={messages}
                     renderItem={mesaggesfromdata} />
@@ -64,15 +59,18 @@ export default function MessagesScreen() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'white',
-        
+        backgroundColor: '#f2f2f2',
         
     },
-    
+    mymessages:{
+        alignItems:'flex-end',
+        
+    },
     a: {
-        backgroundColor: 'pink',
+        backgroundColor: '#E1F8DC',
         width:"40%",
         borderRadius: 100,
+        alignItems: 'center',
         
 
     },
@@ -80,7 +78,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'pink',
         width:"40%",
         borderRadius: 100,
-
+        
     },
     avatar:{
         height:10,
