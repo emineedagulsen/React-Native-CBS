@@ -2,7 +2,6 @@ import * as SecureStore from 'expo-secure-store';
 import React, { useEffect, useState } from 'react';
 import { Button, StyleSheet, Text, TextInput, View ,Image, TouchableOpacity, Alert} from 'react-native';
 import { useDispatch } from 'react-redux';
-import Input from '../components/Input';
 import { rehydrateUser, signin } from '../store/actions/user.actions';
 
 export default function LoginScreen({navigation}: {navigation: any}) {
