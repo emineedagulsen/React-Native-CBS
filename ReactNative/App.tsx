@@ -14,8 +14,15 @@ const rootReducer = combineReducers({
   // posts: PostReducer
 });
 export type RootState = ReturnType<typeof rootReducer>
-const queryClient = new QueryClient();
 
+
+//The query key you provide is used internally for 
+//refetching, caching, and sharing your queries throughout your application.
+const queryClient = new QueryClient(); 
+
+
+
+//Our aim is to keep our reducers pure.
 const store = createStore(rootReducer, applyMiddleware(ReduxThunk));
 // const store = createStore(rootReducer);
 

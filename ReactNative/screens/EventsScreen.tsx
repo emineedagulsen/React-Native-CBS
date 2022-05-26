@@ -1,9 +1,6 @@
 import React, { useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button, FlatList, StyleSheet, Text,Image, TouchableOpacity, View, ImageBackground, Dimensions } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-import { useQueryClient } from 'react-query';
-import { Avatar } from 'react-native-paper';
 import { Ionicons } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
 

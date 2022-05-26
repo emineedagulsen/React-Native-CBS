@@ -15,6 +15,7 @@ export default function LoginScreen({navigation}: {navigation: any}) {
     const dispatch = useDispatch();
 
     async function readPersistedUserInfo() {
+        //read user obeject and the token from SecureStore and add them to redux store
         const token = await SecureStore.getItemAsync('idToken');
         const userJson = await SecureStore.getItemAsync('user');
         let user = null;
@@ -28,7 +29,7 @@ export default function LoginScreen({navigation}: {navigation: any}) {
         }
     }
 
-    useEffect(() => {
+    useEffect(() => {//to avoid infinite reload
         readPersistedUserInfo();
     }, [])
 

@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React  from 'react';
 import { StyleSheet, Text, View,Image, Alert, TouchableOpacity } from 'react-native';
-import { useDispatch } from 'react-redux';
-import { rehydrateUser, signup } from '../store/actions/user.actions';
-import * as SecureStore from 'expo-secure-store';
+
 
 export default function VerifiedEmailScreen({navigation}: {navigation: any}) {
     

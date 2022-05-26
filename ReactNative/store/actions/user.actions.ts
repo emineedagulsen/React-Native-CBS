@@ -3,6 +3,7 @@ import { FirebaseSignupSuccess } from "../../entities/FirebaseSignupSuccess";
 import { User } from '../../entities/User';
 
 
+//action types 
 
 export const SIGNUP = 'SIGNUP';
 export const REHYDRATE_USER = 'REHYDRATE_USER';
@@ -10,12 +11,13 @@ export const LOGOUT = 'LOGOUT';
 export const CHANGEMAIL = 'CHANGEMAIL';
 export const SIGNIN = 'SIGNIN';
 
+
 export const rehydrateUser = (user: User, idToken: string) => {
     return { type: REHYDRATE_USER, payload: { user, idToken } }
 }
 
 export const logout = () => {
-    SecureStore.deleteItemAsync('idToken');
+    SecureStore.deleteItemAsync('idToken');//delete user and token from SecureStore
     SecureStore.deleteItemAsync('user');
 
     return { type: LOGOUT }
@@ -64,6 +66,7 @@ export const changeemail = (email:string) => {
 };
 
 
+//login
 
 
 export const signin = (email: string, password: string) => {
@@ -94,9 +97,11 @@ export const signin = (email: string, password: string) => {
             console.log("data from server", data);
 
             const user = new User(data.email, '', '');
+            
+            //save user object and token in SecureStore
 
             await SecureStore.setItemAsync('idToken', data.idToken);
-            await SecureStore.setItemAsync('user', JSON.stringify(user)); // convert user js-obj. to json
+            await SecureStore.setItemAsync('user', JSON.stringify(user)); // convert user js-obj. to json string to be saved and recreated when read
 
             dispatch({ type: SIGNIN, payload: { user, idToken: data.idToken } })
         }
@@ -108,6 +113,7 @@ export const signin = (email: string, password: string) => {
 
 
 
+//kayıt
 
 export const signup = (email: string, password: string) => {
     return async (dispatch: any, getState: any) => {

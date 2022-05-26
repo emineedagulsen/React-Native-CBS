@@ -7,13 +7,13 @@ const baseUrl ='https://reac-native-95230-default-rtdb.europe-west1.firebasedata
 
 
 
-
+//getting all messages from firebase and convert to array
 
 export const useGetMessages=() =>{
     const token = useSelector((state: any) => state.user.idToken)
     
     const fetchMessages =async() =>{
-        return await axios.get(baseUrl+ 'chatrooms/messages.json?auth='+token)
+        return await axios.get(baseUrl+ 'chatrooms/messages.json?auth='+token)//axios is lib which provide HTTP calls easily in client side app 
     }
 
 
@@ -26,6 +26,10 @@ export const useGetMessages=() =>{
     }
     return {isLoading,isError,messages,error};
 }
+
+
+
+//create a new message
 export const usePostMessage=()=>{
     const token = useSelector((state: any) => state.user.idToken)
 

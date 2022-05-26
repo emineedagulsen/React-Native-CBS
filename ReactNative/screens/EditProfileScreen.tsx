@@ -13,6 +13,14 @@ export default function EditProfileScreen() {
     const user =useSelector((state: RootState) => state.user.loggedInUser);
     const [textEmail, setTextEmail] = useState(user?.email)
     const [emailValid, setEmailValid] = useState(false); // lift up - pass through props instead
+    //textEmail->read   setTextEmail->write  false->state value
+
+/*
+We lift up state to a common ancestor of components that need it, so that they can all share in the state.
+ This allows us to more easily share state among all of these components that need rely upon it.
+*/
+
+
     const dispatch = useDispatch();
 
     // lifted up to this parent component.

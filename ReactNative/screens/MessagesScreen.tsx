@@ -8,7 +8,7 @@ import { Avatar } from 'react-native-paper';
 
 
 export default function MessagesScreen() {
-
+//create client
     const queryClient = useQueryClient();
 
     const [message, setMessage] = React.useState('');
@@ -16,25 +16,41 @@ export default function MessagesScreen() {
     const loggedInUser = useSelector((state: any) => state.user.loggedInUser);
     const Chat = useSelector((state: any) => state.chat.Chat);
 
-
+    //Use it in the page. Get 
     const { isLoading, isError, messages, error } = useGetMessages();
-    const { mutate: createChatmessage } = usePostMessage()
-
-     //save messages
-    const Message = () => {
-        const x = { title: message, user: loggedInUser }
-        createChatmessage(x, { onSuccess: () => queryClient.invalidateQueries('chatmessages') })
-    }
     
 
+
+    //Use it in the page Post
+    const { mutate: createChatmessage } = usePostMessage()
+    //Unlike queries, mutations are typically used to create/update/delete data or perform server side-effects.
+    // For this purpose, React Query exports a useMutation hook.
+    //I used it there for creating a new message
+
+
+
+     //save messages
+    const HandleAddMessages = () => {
+        const x = { title: message, user: loggedInUser }
+        createChatmessage(x, { onSuccess: () => queryClient.invalidateQueries('chatmessages') })
+        //When a successful postMessage mutation happens,
+        //all messages queries to get invalidated and possibly refetched to show the new message.
+        // pass in chatmessages as the key
+    }
+    
+    //my messages which send after create chatroom
     const mesaggesfromdata = ({ item }: { item: any }) => (
         <View style={styles.mymessages} >
             <Text style ={styles.a}>{item.user.email}</Text>
             <Text style ={styles.a}>{item.title}</Text>
         </View>
     )
-   
+    /*
+   FlatList data=messages array are from hook
+   renderItem: user's messages  
+   */
     return (
+        //other user's messages (what we add from start)
         <><View style={styles.textInputStyle}>
             <Text>{Chat.user}</Text>
             <Text>{Chat.message}</Text>
@@ -50,7 +66,7 @@ export default function MessagesScreen() {
                     /><Avatar.Image size={30} source={require('../assets/pp.png')} />
 
 
-                <Button title="Send" onPress={Message} />
+                <Button title="Send" onPress={HandleAddMessages} />
             </View></>
             
     );
