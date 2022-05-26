@@ -4,6 +4,7 @@ import { Button, FlatList, StyleSheet, Text, TextInput, View } from 'react-nativ
 import { useNavigation } from '@react-navigation/native';
 import { useGetMessages, usePostMessage } from '../hooks/todos';
 import { useQueryClient } from 'react-query';
+import { Avatar } from 'react-native-paper';
 
 
 export default function MessagesScreen() {
@@ -15,7 +16,7 @@ export default function MessagesScreen() {
     const [message, setMessage] = React.useState('');
 
     const loggedInUser = useSelector((state: any) => state.user.loggedInUser);
-        const openChat = useSelector((state: any) => state.chat.openChat);
+    const Chat = useSelector((state: any) => state.chat.Chat);
 
     const { mutate: createChatmessage } = usePostMessage()
 
@@ -25,9 +26,8 @@ export default function MessagesScreen() {
    
 
     const mesaggesfromdata = ({ item }: { item: any }) => (
-        <View style={styles.a}>
-            
-            <Text>{item.user.email}:</Text>
+        <View style={styles.a} >
+            <Text>{item.user.email}</Text>
             <Text>{item.title}</Text>
         </View>
     )
@@ -37,44 +37,53 @@ export default function MessagesScreen() {
     }
     
     return (
-        <View style={styles.container}>
+        <><View style={styles.textInputStyle}>
 
-            <Text style={styles.textInputStyle}>
-                {openChat.user}</Text>
-            <Text style={styles.textInputStyle}>{openChat.message}</Text>
+            <Text>{Chat.user}</Text>
+            <Text>{Chat.message}</Text>
+        </View><View style={styles.container}>
 
-            <FlatList
-                data={messages}
-                renderItem={mesaggesfromdata}/>
-            <TextInput
-                onChangeText={setMessage}
-                value={message}
-                placeholder="Type a message"
-            />
-            <Button title="Send" onPress={Message} />
-        </View>
+
+                <FlatList
+                    data={messages}
+                    renderItem={mesaggesfromdata} />
+
+                <TextInput
+                    onChangeText={setMessage}
+                    value={message}
+                    placeholder="          Write a message" 
+                    /><Avatar.Image size={30} source={require('../assets/pp.png')} />
+
+
+                <Button title="Send" onPress={Message} />
+            </View></>
+            
     );
 }
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: 'white',
         
         
     },
     
     a: {
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: 'purple',
-        margin:5
+        backgroundColor: 'pink',
+        width:"40%",
+        borderRadius: 100,
+        
 
     },
     textInputStyle: {
         backgroundColor: 'pink',
-        width:"30%",
+        width:"40%",
         borderRadius: 100,
 
-        }
+    },
+    avatar:{
+        height:10,
+
+    }
 })  

@@ -47,11 +47,6 @@ export default function LoginScreen({navigation}: {navigation: any}) {
             
           
 
-
-            <TouchableOpacity>
-                    <Text style={styles.forgot_button}>Forgot password?</Text>
-            </TouchableOpacity>
-
             <TouchableOpacity style={styles.loginbutton}
              onPress={() => dispatch<any>(signin(email, password))} >
                   <Text style={styles.x}>{"Login"}</Text>

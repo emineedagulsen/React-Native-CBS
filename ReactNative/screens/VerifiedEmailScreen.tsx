@@ -21,11 +21,13 @@ export default function VerifiedEmailScreen({navigation}: {navigation: any}) {
               <Text style={styles.color}>{"I've verified my email"}</Text>
         </TouchableOpacity>
 
+
             <TouchableOpacity style={styles.y}
                 onPress={() => Alert.alert("A Short Title Is Best",
                 "A massage should be a short,complete sentence.")}>
                   <Text style={styles.y}>{"Having  trouble? "}</Text>
-                  <Text style={styles.z}>{"Resend  e-mail "}</Text>
+                 
+                    
             </TouchableOpacity>
 
             

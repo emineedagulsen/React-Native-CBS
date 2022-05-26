@@ -32,7 +32,7 @@ const chatReducer = (state: ReduxState = initialState, action: ReduxAction) => {
             return { ...state, chatrooms: action.payload }
         case WRITE_DATA: 
             console.log(action.payload);
-            return { ...state, openChat: action.payload} 
+            return { ...state, Chat: action.payload} 
         
         default:
             return state;

@@ -120,7 +120,7 @@ export default function Navigation() {
                      <Stack.Screen name="NewUser" component={NewUserScreen} />
                      <Stack.Screen name="VerifiedEmail" component={VerifiedEmailScreen} />
                      <Stack.Screen name="BeforeStart" component={BeforeStartScreen} />
-
+                    
                 </Stack.Navigator>
             )}
         </NavigationContainer>

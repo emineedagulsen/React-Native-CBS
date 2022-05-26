@@ -11,9 +11,9 @@ const baseUrl ='https://reac-native-95230-default-rtdb.europe-west1.firebasedata
 
 export const useGetMessages=() =>{
     const token = useSelector((state: any) => state.user.idToken)
-
+    
     const fetchMessages =async() =>{
-        return await axios.get(baseUrl+ '/messages.json?auth='+token)
+        return await axios.get(baseUrl+ 'chatrooms/messages.json?auth='+token)
     }
 
 
@@ -33,3 +33,4 @@ export const usePostMessage=()=>{
         return  axios.post(baseUrl+ 'messages.json?auth='+token,newMessages)
     })
 }
+

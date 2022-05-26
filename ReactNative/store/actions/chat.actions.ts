@@ -41,7 +41,7 @@ export const fetchChatrooms = () => {
             console.log("chatrooms", chatrooms);
            
 
-            await SecureStore.setItemAsync('chatrooms', JSON.stringify(data.chatrooms)); //I did not figure out this issue
+            await SecureStore.setItemAsync('chatroom', JSON.stringify(data.chatrooms)); //I did not figure out this issue
 
             dispatch( {type: 'FETCH_CHATROOMS', payload :chatrooms } )
         }
