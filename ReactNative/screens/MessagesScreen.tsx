@@ -49,6 +49,11 @@ export default function MessagesScreen() {
    FlatList data=messages array are from hook
    renderItem: user's messages  
    */
+
+
+   /*
+   TextInput is for enter text
+   */
     return (
         //other user's messages (what we add from start)
         <><View style={styles.textInputStyle}>

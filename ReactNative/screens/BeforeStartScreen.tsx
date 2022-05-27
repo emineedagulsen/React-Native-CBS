@@ -1,15 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { StyleSheet, Text, TextInput, View ,Image, TouchableOpacity, SafeAreaView, ScrollView, Switch, Alert} from 'react-native';
-import DropDownPicker from 'react-native-dropdown-picker';
-import { Dialog } from 'react-native-elements';
-import { User } from 'react-native-gifted-chat';
-import { Avatar, List } from 'react-native-paper';
-import { useSelector } from 'react-redux';
-import { RootState } from '../App';
+
 
 export default function BeforeStartScreen({navigation}: {navigation: any}) {
 
-  const user = useSelector((state: RootState) => state.user.loggedInUser);
 
 
   const onPressDoSomething = () =>{

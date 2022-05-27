@@ -9,7 +9,7 @@ interface ReduxState {
     Chat: Chatroom
 
 }
-
+//for being not undefined state
 const initialState: ReduxState = {
     chatrooms: [],
     name: "Peter",

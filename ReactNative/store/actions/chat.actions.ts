@@ -43,7 +43,7 @@ export const fetchChatrooms = () => {
             console.log("chatrooms", chatrooms);
            
             await SecureStore.setItemAsync('chat', JSON.stringify(data.chat));
-            await SecureStore.setItemAsync('user', JSON.stringify(chatrooms)); 
+            await SecureStore.setItemAsync('chatrooms', JSON.stringify(chatrooms)); 
 
             dispatch( {type: 'FETCH_CHATROOMS', payload :chatrooms } )
         }

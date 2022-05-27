@@ -6,9 +6,8 @@ import { rehydrateUser, signin } from '../store/actions/user.actions';
 
 export default function LoginScreen({navigation}: {navigation: any}) {
     const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-   
- 
+    const [password, setPassword] = useState('');//'' ->default value
+
 
 
 
@@ -24,7 +23,7 @@ export default function LoginScreen({navigation}: {navigation: any}) {
         }
         if (user) {
             // then we have a priv. login
-            // restore the signup by updating the redux store based on usre and token.
+            // restore the signup by updating the redux store based on user and token.
             dispatch(rehydrateUser(user, token!))
         }
     }
