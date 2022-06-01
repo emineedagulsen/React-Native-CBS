@@ -4,7 +4,7 @@ export type StackParamList = {
     Profile: undefined;
     EditProfile: undefined;
     Login:undefined;
-    NewUser:undefined;
+    Jon:undefined;
     VerifiedEmail:undefined;
     Home:undefined;
     BeforeStart:undefined;

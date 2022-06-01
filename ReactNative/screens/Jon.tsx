@@ -9,7 +9,7 @@ import * as SecureStore from 'expo-secure-store';
 
 
 
-export default function NewUserScreen({navigation}: {navigation: any}) {
+export default function Jon({navigation}: {navigation: any}) {
     const [email, setEmail] = useState('');    
 
     const [password, setPassword] = useState('');    

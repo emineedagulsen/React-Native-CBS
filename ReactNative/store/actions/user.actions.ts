@@ -16,6 +16,7 @@ export const rehydrateUser = (user: User, idToken: string) => {
     return { type: REHYDRATE_USER, payload: { user, idToken } }
 }
 
+//action creator
 export const logout = () => {
     SecureStore.deleteItemAsync('idToken');//delete user and token from SecureStore
     SecureStore.deleteItemAsync('user');
@@ -60,7 +61,7 @@ export const changeemail = (email:string) => {
                 await SecureStore.setItemAsync('idToken', JSON.stringify(data.idToken));
                 await SecureStore.setItemAsync('user', JSON.stringify(user)); 
 
-                dispatch({ type: CHANGEMAIL, payload: { user, idToken: data.idToken } })
+                dispatch({ type: CHANGEMAIL, payload: { user, idToken: data.idToken } })//action
         }
     };
 };

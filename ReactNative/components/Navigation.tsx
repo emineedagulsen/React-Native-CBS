@@ -8,7 +8,7 @@ import { RootState } from '../App';
 import EditProfileScreen from '../screens/EditProfileScreen';
 import HomeScreen from '../screens/HomeScreen';
 import ProfileScreen from '../screens/ProfileScreen';
-import NewUserScreen from '../screens/NewUserScreen';
+import NewUserScreen from '../screens/Jon';
 import EventsScreen from '../screens/EventsScreen';
 
 
@@ -26,6 +26,7 @@ import DiscoverScreen from '../screens/DiscoverScreen';
 import ChatRoomScreen from '../screens/ChatRoomScreen';
 import BeforeStartScreen from '../screens/BeforeStartScreen';
 import MessagesScreen from '../screens/MessagesScreen';
+import Jon from '../screens/Jon';
 
 
 const Stack = createNativeStackNavigator<StackParamList>();
@@ -119,7 +120,7 @@ export default function Navigation() {
                 <Stack.Navigator>
                      <Stack.Screen name="Login" component={LoginScreen} /> 
 
-                     <Stack.Screen name="NewUser" component={NewUserScreen} />
+                     <Stack.Screen name="Jon" component={Jon} />
                      <Stack.Screen name="VerifiedEmail" component={VerifiedEmailScreen} />
                      <Stack.Screen name="BeforeStart" component={BeforeStartScreen} />
 

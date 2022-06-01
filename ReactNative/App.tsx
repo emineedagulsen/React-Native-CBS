@@ -22,7 +22,7 @@ const queryClient = new QueryClient();
 
 
 
-//Our aim is to keep our reducers pure.
+//Our aim is to keep our reducers pure.readable
 const store = createStore(rootReducer, applyMiddleware(ReduxThunk));
 // const store = createStore(rootReducer);
 

@@ -58,7 +58,7 @@ export default function LoginScreen({navigation}: {navigation: any}) {
             
             <Text style={styles.acc_button}>Don't you have an account?</Text>
             
-            <Button title="Sign up" onPress={() => navigation.navigate('NewUser')}/> 
+            <Button title="Sign up" onPress={() => navigation.navigate('Jon')}/> 
             
         </View>
     ); 
